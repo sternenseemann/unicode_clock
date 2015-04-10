@@ -5,8 +5,10 @@ from datetime import datetime
 FULLHOURS = "_🕐🕑🕒🕓🕔🕕🕖🕗🕘🕙🕚🕛"
 HALFHOURS = "_🕜🕝🕞🕟🕠🕡🕢🕣🕤🕥🕦🕧"
 
+
 class RangeError(Exception):
     pass
+
 
 def round_time(hour, minute):
     if not (hour in range(24) and minute in range(60)):
@@ -18,11 +20,13 @@ def round_time(hour, minute):
     else:
         return hour, 30
 
+
 def twentyfour2twelve(hour):
     if hour == 0 or hour == 24 or hour == 12:
         return 12
     else:
         return hour % 12
+
 
 def unicode_clock(hour, minute):
     rh, rm = round_time(hour, minute)
