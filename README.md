@@ -15,3 +15,6 @@ from unicode_clock import unicode_clock
 
 clock = unicode_clock(13, 37)
 ```
+
+## License
+![](http://www.gnu.org/graphics/gplv3-127x51.png)
