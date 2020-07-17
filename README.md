@@ -1,11 +1,13 @@
 # unicode 🕐
-unicode_clock is a small script that outputs the closest available unicode clock symbol to the current time. That is useful for fancy status bars.
 
-It also can be used as python library.
+This package includes:
+
+* `unicode-clock`: script displaying the closest available unicode clock symbol to the current time
+* `unicode_clock`: python library offering the same symbol approximation for arbitrary times
 
 ## Usage example
 ```
-13:37 $ unicode_clock.py
+13:37 $ unicode-clock
 🕜
 ```
 
