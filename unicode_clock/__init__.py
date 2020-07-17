@@ -50,6 +50,37 @@ def unicode_clock(hour, minute):
     elif rm == 30:
         return HALFHOURS[rh]
 
-if __name__ == '__main__':
-    now = datetime.now()
-    print(unicode_clock(now.hour, now.minute))
+if __name__ == "__main__":
+    import sys
+    endline = "\n"
+    numbers = []
+    for arg in sys.argv[1:]:
+        if arg == "-h" or arg == "--help" or arg == "--usage":
+            print("""Usage:
+  {} [-n] [HOUR [MINUTE]]
+
+Arguments:
+  -h      Display this message
+  -n      Don't print newline after the clock symbol
+  HOUR    Set hour to use; if not given, use system clock
+  MINUTE  Set minute to use; if not given, use 0,
+          if HOUR is given, otherwise system clock""".format(sys.argv[0]))
+            sys.exit()
+        elif arg == "-n":
+            endline = ""
+        else:
+            try:
+                numbers.append(int(arg))
+            except ValueError:
+                sys.exit("{}: Unexpected command line parameter \"{}\", use {} -h for help".format(sys.argv[0], arg, sys.argv[0]))
+
+    if len(numbers) == 0:
+        now = datetime.now()
+        numbers = [ now.hour, now.minute ]
+    elif len(numbers) == 1:
+        numbers.append(0)
+
+    try:
+        print(unicode_clock(numbers[0], numbers[1]),end=endline)
+    except RangeError:
+        sys.exit("{}: Malformed time: {}:{}".format(sys.argv[0], numbers[0], numbers[1]))
