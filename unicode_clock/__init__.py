@@ -15,6 +15,7 @@
 
 
 from datetime import datetime
+import sys
 
 FULLHOURS = "_🕐🕑🕒🕓🕔🕕🕖🕗🕘🕙🕚🕛"
 HALFHOURS = "_🕜🕝🕞🕟🕠🕡🕢🕣🕤🕥🕦🕧"
@@ -50,8 +51,7 @@ def unicode_clock(hour, minute):
     elif rm == 30:
         return HALFHOURS[rh]
 
-if __name__ == "__main__":
-    import sys
+def main():
     endline = "\n"
     numbers = []
     for arg in sys.argv[1:]:
@@ -84,3 +84,6 @@ Arguments:
         print(unicode_clock(numbers[0], numbers[1]),end=endline)
     except RangeError:
         sys.exit("{}: Malformed time: {}:{}".format(sys.argv[0], numbers[0], numbers[1]))
+
+if __name__ == "__main__":
+    main()

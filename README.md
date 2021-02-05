@@ -39,13 +39,7 @@ clock = unicode_clock(13, 37)
 
 ## installation
 
-`unicode-clock` only depends on Python 3.
-
-* Nix(OS): use `python3Packages.callPackage` on `default.nix`
-* Manually:
-    * Copy `unicode_clock` into your python installation's `site-packages`
-    * Symlink `unicode_clock/__init__.py` into your `PATH`
-    * Alternatively (if you don't need the library) copy `unicode_clock/__init__.py` into your `PATH` directly
+`unicode-clock` only depends on Python 3 and installs as you'd expect using `setuptools`.
 
 ## license
 ![](http://www.gnu.org/graphics/gplv3-127x51.png)
